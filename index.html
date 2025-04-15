@@ -12,57 +12,49 @@
         }
 
         body {
-            background-color: #000000;
-            color: #e6e6e6;
-            font-family: 'Arial', sans-serif;
+            background-color: #1c1c1c;
+            color: #f1f1f1;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             overflow-x: hidden;
-            animation: backgroundMove 15s ease-in-out infinite;
+            animation: backgroundTransition 10s ease-in-out infinite;
         }
 
-        @keyframes backgroundMove {
-            0% {
-                background-color: #1a1a1a;
-            }
-            50% {
-                background-color: #2c2c2c;
-            }
-            100% {
-                background-color: #1a1a1a;
-            }
+        @keyframes backgroundTransition {
+            0% { background-color: #1c1c1c; }
+            50% { background-color: #2d2d2d; }
+            100% { background-color: #1c1c1c; }
         }
 
         .container {
             display: flex;
             flex-direction: column;
-            justify-content: center;
             align-items: center;
-            min-height: 100vh;
+            justify-content: center;
+            height: 100vh;
             padding: 20px;
-            position: relative;
-            z-index: 2;
         }
 
         .welcome-box {
             background-color: rgba(0, 0, 0, 0.7);
             padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
-            margin-bottom: 40px;
+            border-radius: 15px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
             text-align: center;
-            animation: slideIn 1.5s ease-out;
+            animation: fadeIn 2s ease-out;
         }
 
-        @keyframes slideIn {
-            0% { transform: translateY(-100%); }
-            100% { transform: translateY(0); }
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
         }
 
         h1 {
-            font-size: 2.5em;
-            color: #f39c12;
+            font-size: 3em;
             font-weight: bold;
-            letter-spacing: 2px;
+            color: #f39c12;
             margin-bottom: 20px;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.8);
         }
 
         .question {
@@ -70,30 +62,30 @@
             color: #dfe6e9;
             margin: 20px 0;
             font-family: 'Courier New', Courier, monospace;
-            animation: fadeInText 2s ease-in-out;
-        }
-
-        @keyframes fadeInText {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
+            animation: fadeIn 3s ease-in-out;
         }
 
         .answer {
-            font-size: 1.5em;
+            font-size: 1.6em;
             color: #e74c3c;
             font-weight: bold;
-            margin-bottom: 40px;
-            animation: fadeInText 2.5s ease-in-out;
+            margin: 20px 0;
+            animation: fadeIn 3s ease-in-out;
         }
 
-        .answer:hover {
-            color: #16a085;
-            cursor: pointer;
-            text-decoration: underline;
+        input[type="text"] {
+            font-size: 1.5em;
+            padding: 10px;
+            width: 80%;
+            margin-top: 10px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            background-color: #2d2d2d;
+            color: #fff;
         }
 
         .btn {
-            padding: 15px 30px;
+            padding: 15px 35px;
             font-size: 1.5em;
             background-color: #9b59b6;
             color: #fff;
@@ -102,6 +94,7 @@
             cursor: pointer;
             transition: background-color 0.3s;
             animation: bounce 2s infinite;
+            margin-top: 20px;
         }
 
         .btn:hover {
@@ -110,24 +103,16 @@
 
         @keyframes bounce {
             0% { transform: translateY(0); }
-            25% { transform: translateY(-15px); }
+            25% { transform: translateY(-10px); }
             50% { transform: translateY(0); }
-            75% { transform: translateY(-15px); }
+            75% { transform: translateY(-10px); }
             100% { transform: translateY(0); }
-        }
-
-        .footer {
-            position: absolute;
-            bottom: 10px;
-            font-size: 0.8em;
-            color: #bdc3c7;
-            animation: fadeIn 4s ease-in-out;
         }
 
         .images-container {
             display: flex;
             justify-content: center;
-            margin: 20px 0;
+            margin: 30px 0;
         }
 
         .images-container img {
@@ -136,6 +121,15 @@
             height: 120px;
             object-fit: cover;
             margin: 0 20px;
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 10px;
+            font-size: 0.8em;
+            color: #bdc3c7;
+            text-align: center;
+            animation: fadeIn 4s ease-in-out;
         }
     </style>
 </head>
@@ -151,20 +145,16 @@
             </div>
 
             <div class="question">
-                1. **Amritansh ko kis cheez se sabse zyada dar lagta hai?**
-            </div>
-            <div class="answer">
-                Answer: Chotku ko khone se
+                <strong>1. Amritansh ko kis cheez se sabse zyada dar lagta hai?</strong>
+                <input type="text" id="q1-answer" placeholder="Your answer...">
             </div>
 
             <div class="question">
-                2. **Amritansh ko aapke body ka kaunsa part sabse zyada pasand hai?**
-            </div>
-            <div class="answer">
-                Answer: Puri body meri jaan ka har part beautiful hai
+                <strong>2. Amritansh ko aapke body ka kaunsa part sabse zyada pasand hai?</strong>
+                <input type="text" id="q2-answer" placeholder="Your answer...">
             </div>
 
-            <button class="btn" onclick="startGame()">Start Game</button>
+            <button class="btn" onclick="submitAnswers()">Submit Answers</button>
         </div>
 
         <div class="footer">
@@ -173,8 +163,21 @@
     </div>
 
     <script>
-        function startGame() {
-            alert("Game Started! Let's go!");
+        function submitAnswers() {
+            // Getting the input values
+            var answer1 = document.getElementById('q1-answer').value.trim().toLowerCase();
+            var answer2 = document.getElementById('q2-answer').value.trim().toLowerCase();
+
+            // Correct answers
+            var correctAnswer1 = "chotku ko khone se";
+            var correctAnswer2 = "puri body meri jaan ka har part beautiful hai";
+
+            // Checking the answers
+            if (answer1 === correctAnswer1 && answer2 === correctAnswer2) {
+                alert("Congratulations! You've entered the correct answers. Game starts now!");
+            } else {
+                alert("Oops! Some answers are incorrect. Please try again.");
+            }
         }
     </script>
 
