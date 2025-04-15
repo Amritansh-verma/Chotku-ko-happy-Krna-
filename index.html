@@ -55,7 +55,6 @@
             margin-bottom: 20px;
             letter-spacing: 2px;
             text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.8);
-            
         }
 
         .question {
@@ -112,19 +111,18 @@
 
         .images-container {
             display: flex;
-            justify-content: center;
+            justify-content: flex-start;
             margin: 30px 0;
         }
 
         .images-container img {
-    width: 220px;
-    height: auto;
-    object-fit: cover;
-    margin: 0 20px;
-    border-radius: 12px; /* Optional for slightly rounded corners, ya hata do */
-    box-shadow: 0 0 12px rgba(255, 255, 255, 0.2); /* Optional classy look */
-}
-
+            width: 220px;
+            height: auto;
+            object-fit: cover;
+            margin: 0 20px;
+            border-radius: 12px;
+            box-shadow: 0 0 12px rgba(255, 255, 255, 0.2);
+        }
 
         .footer {
             position: absolute;
@@ -141,9 +139,9 @@
     <div class="container">
         <div class="welcome-box">
             <h1> Welcome My Rasmaliya</h1>
-               <h2>[Here we will release all of your stress!]</h2>
+            <h2>[Here we will release all of your stress!]</h2>
+
             <div class="images-container">
-                <img src="amritansh.jpg" alt="Amritansh's photo">
                 <img src="chotku.jpg" alt="Chotku's photo">
             </div>
 
@@ -152,7 +150,6 @@
                     To whom does Amritansh <b><u>LOVES</u></b> the most </strong>
                 <input type="text" id="q1-answer" placeholder="Your answer...">
             </div>
-
 
             <button class="btn" onclick="submitAnswers()">Submit Answers</button>
         </div>
@@ -164,14 +161,9 @@
 
     <script>
         function submitAnswers() {
-            // Getting the input values
             var answer1 = document.getElementById('q1-answer').value.trim().toLowerCase();
-           
-
-            // Correct answers
             var correctAnswer1 = "chotu baby";
-           
-            // Checking the answers
+
             if (answer1 === correctAnswer1) {
                 alert("Congratulations! You've entered the correct answers. Game starts now!");
                 alert("Now chotu baby you are going play a interesting Game created by me jaan");
