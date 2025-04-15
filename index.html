@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amritansh's Adventure Game</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #1c1c1c;
+            color: #f1f1f1;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow-x: hidden;
+            animation: backgroundTransition 10s ease-in-out infinite;
+        }
+
+        @keyframes backgroundTransition {
+            0% { background-color: #1c1c1c; }
+            50% { background-color: #2d2d2d; }
+            100% { background-color: #1c1c1c; }
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            padding: 20px;
+        }
+
+        .welcome-box {
+            background-color: rgb(0, 0, 0);
+            padding: 40px;
+            border-radius: 45px;
+            box-shadow: 0 0 30px rgba(89, 58, 140, 0.772);
+            text-align: center;
+            animation: fadeIn cubic-bezier(0.55, 0.085, 0.68, 0.53) ease-out;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        h1 {
+            font-size: 3em;
+            font-weight: bold;
+            color: #f39c12;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.8);
+            
+        }
+
+        .question {
+            font-size: 3em;
+            color: #9bb3beb7;
+            margin: 20px 0;
+            font-family: 'Courier New', Courier, monospace;
+            animation: fadeIn 10s ease-in-out;
+        }
+
+        .answer {
+            font-size: 1.6em;
+            color: #e61700;
+            font-weight: bold;
+            margin: 20px 0;
+            animation: fadeIn 3s ease-in-out;
+        }
+
+        input[type="text"] {
+            font-size: 1.5em;
+            padding: 10px;
+            width: 80%;
+            margin-top: 10px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            background-color: #2d2d2d;
+            color: #fff;
+        }
+
+        .btn {
+            padding: 15px 35px;
+            font-size: 1.5em;
+            background-color: #9b59b6;
+            color: #fff;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            animation: bounce 2s infinite;
+            margin-top: 20px;
+        }
+
+        .btn:hover {
+            background-color: #8e44ad;
+        }
+
+        @keyframes bounce {
+            0% { transform: translateY(0); }
+            25% { transform: translateY(-10px); }
+            50% { transform: translateY(0); }
+            75% { transform: translateY(-10px); }
+            100% { transform: translateY(0); }
+        }
+
+        .images-container {
+            display: flex;
+            justify-content: center;
+            margin: 30px 0;
+        }
+
+        .images-container img {
+    width: 220px;
+    height: auto;
+    object-fit: cover;
+    margin: 0 20px;
+    border-radius: 12px; /* Optional for slightly rounded corners, ya hata do */
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.2); /* Optional classy look */
+}
+
+
+        .footer {
+            position: absolute;
+            bottom: 10px;
+            font-size: 0.8em;
+            color: #bdc3c7;
+            text-align: center;
+            animation: fadeIn 4s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="welcome-box">
+            <h1> Welcome My Rasmaliya</h1>
+               <h2>[Here we will release all of your stress!]</h2>
+            <div class="images-container">
+                <img src="amritansh.jpg" alt="Amritansh's photo">
+                <img src="chotku.jpg" alt="Chotku's photo">
+            </div>
+
+            <div class="question">
+                <strong>
+                    To whom does Amritansh <b><u>LOVES</u></b> the most </strong>
+                <input type="text" id="q1-answer" placeholder="Your answer...">
+            </div>
+
+
+            <button class="btn" onclick="submitAnswers()">Submit Answers</button>
+        </div>
+
+        <div class="footer">
+            Made with ❤️ by Amritansh
+        </div>
+    </div>
+
+    <script>
+        function submitAnswers() {
+            // Getting the input values
+            var answer1 = document.getElementById('q1-answer').value.trim().toLowerCase();
+           
+
+            // Correct answers
+            var correctAnswer1 = "chotu baby";
+           
+            // Checking the answers
+            if (answer1 === correctAnswer1) {
+                alert("Congratulations! You've entered the correct answers. Game starts now!");
+                alert("Now chotu baby you are going play a interesting Game created by me jaan");
+                alert("Are you Ready!!!!!!!!");
+                alert("Ready na cutu baby?????????????????");
+                alert("halo shuru krte h ham log Sambhal kr khelna haarna mt.....");
+                alert("You can do it chotku");
+                window.location.href = "flappy.html";
+            } else {
+                alert("Oops! Some answers are incorrect. Please try again.");
+            }
+        }
+    </script>
+
+</body>
+</html>
